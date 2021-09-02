@@ -13,7 +13,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
 public class AnimeRec {
-    int numberOfEpisodes=0;              // Maximum umber of episodes recommended show must have
+    int numberOfEpisodes=0;              // Maximum number of episodes the recommended show can have
     String genre="";                     // Genre of recommendation
     String showName="";                  // Original show user wants a recommendation based on
     float minScore=0;                    // Minimum score for recommended show
