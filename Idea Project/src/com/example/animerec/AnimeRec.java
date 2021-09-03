@@ -154,7 +154,8 @@ public class AnimeRec {
         String [] nameSeperated=fullName.split(" ");
         String nameRetrieved="";
         for (int i=1; i<10; i++) {
-            if (nameSeperated[i].equals("Japanese:") || nameSeperated[i].equals("Synonyms:"))
+            if (nameSeperated[i].equals("Japanese:") || nameSeperated[i].equals("Synonyms:") ||
+            nameSeperated[i].equals("Main") || nameSeperated[i].equals("Supporting"))
                 break;
             nameRetrieved += nameSeperated[i] + " ";
         }
