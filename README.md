@@ -20,5 +20,5 @@
 * Run AnimeRec.java
 
 ## Demo
-![Screenshot (217)](https://user-images.githubusercontent.com/76886099/131749050-6df37fa9-7dcb-44b2-b5f4-1c6e93706f65.png)
-![Screenshot (218)](https://user-images.githubusercontent.com/76886099/131749051-bd2d1cf2-af44-4156-abae-82270a370777.png)
+![Screenshot (220)](https://user-images.githubusercontent.com/76886099/131931778-c1c33219-ba30-456a-8d1f-d99bdaa7253c.png)
+![Screenshot (219)](https://user-images.githubusercontent.com/76886099/131931687-e5b2aa58-55ea-4c8d-88a3-57e9e238db9e.png)
