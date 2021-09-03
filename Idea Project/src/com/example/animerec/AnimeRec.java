@@ -221,7 +221,8 @@ public class AnimeRec {
         while (it.hasNext()){
             String keyShow=it.next().toString();
             ArrayList<String> showCheck = showListInfo.get(keyShow);
-            if (!Character.isDigit(showCheck.get(0).charAt(0)) || !Character.isDigit(showCheck.get(1).charAt(0))) {
+            if (!Character.isDigit(showCheck.get(0).charAt(0)) || !Character.isDigit(showCheck.get(1).charAt(0)) ||
+                    showCheck.get(0).length()>4 || showCheck.get(1).length()>4) {
                 it.remove();
                 continue;
             }
