@@ -170,7 +170,7 @@ public class AnimeRec {
             Elements body = doc.select("tbody");
             String episodes=doc.select("div:containsOwn(Episodes:)").text();
             episodes=checkEpisodes(episodes);
-            String rating=doc.getElementsByClass("po-r js-statistics-info di-ib").text().toString();
+            String rating=doc.getElementsByClass("spaceit_pad po-r js-statistics-info di-ib").text().toString();
             rating= rating.substring(7,11);
             ArrayList <String> showGenres=new ArrayList<>();
             Element e = body.select("div:contains(Genres:)").get(1);
