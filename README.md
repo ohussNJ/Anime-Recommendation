@@ -13,10 +13,10 @@
 * Jsoup scrapes the web to find similar shows so that they can be filtered.
 	
 ## Setup
-* Download all files into the same directory
+* Download files into the same directory
 * Download ChromeDriver (Available at https://chromedriver.chromium.org/) 
 * Copy the path of the file location
-* Paste the file path into lines 60, 61, and 63 
+* Paste the file path into lines 63 
 * Run AnimeRec.java
 
 ## Demo
