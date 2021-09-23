@@ -9,6 +9,7 @@
 * The recommended list of shows is filtered based on user preference.
 	
 ## Tools
+* Must have Selenium and Jsoup packages downloaded
 * Selenium is used to find the web profile of the show inputted by the user.
 * Jsoup scrapes the web to find similar shows so that they can be filtered.
 	
