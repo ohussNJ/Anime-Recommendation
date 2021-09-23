@@ -13,7 +13,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
 public class AnimeRec {
-    int numberOfEpisodes=0;              // Maximum number of episodes the recommended show can have
+    int numberOfEpisodes=0;              // Maximum number of episodes recommended show can have
     String genre="";                     // Genre of recommendation
     String showName="";                  // Original show user wants a recommendation based on
     float minScore=0;                    // Minimum score for recommended show
@@ -57,8 +57,8 @@ public class AnimeRec {
 
     // Start webdriver with necessary properties
     public WebDriver startWebDriver(){
-        System.setProperty("webdriver.chrome.logfile", "C:\\Users\\ohuss\\Downloads\\chromedriverchromedriver.log");
-        System.setProperty("webdriver.chrome.driver", "C:\\Users\\ohuss\\Downloads\\chromedriverchromedriver.exe");
+        //System.setProperty("webdriver.chrome.logfile", "C:\\Users\\ohuss\\Downloads\\chromedriverchromedriver.log");
+        //System.setProperty("webdriver.chrome.driver", "C:\\Users\\ohuss\\Downloads\\chromedriverchromedriver.exe");
         System.setProperty("webdriver.chrome.silentOutput","true");
         System.setProperty("webdriver.chrome.driver","C:\\Users\\ohuss\\Downloads\\chromedriver.exe");
         ChromeOptions options = new ChromeOptions();
@@ -109,6 +109,7 @@ public class AnimeRec {
         ArrayList<String> links=new ArrayList<String>();
         System.out.println();
         System.out.println("Creating list of possible recommendations...");
+        System.out.println();
         try {
             Document doc = Jsoup.connect(url).get();
             Elements body = doc.select("tbody");
@@ -132,9 +133,10 @@ public class AnimeRec {
     public void getShowInfo(ArrayList<String> showList){
         HashMap<String, ArrayList<String>> showListInfo=new HashMap<>();
         ArrayList<String> showAttributes=new ArrayList<>();
-        System.out.println();
-        System.out.println("Narrowing results based on preference...");
+        int i=0;
         for (String show: showList){
+            i++;
+            if (i==50) break;
             try {
                 Document doc = Jsoup.connect(show).get();
                 Elements body = doc.select("tbody");
@@ -155,7 +157,8 @@ public class AnimeRec {
         String nameRetrieved="";
         for (int i=1; i<10; i++) {
             if (nameSeperated[i].equals("Japanese:") || nameSeperated[i].equals("Synonyms:") ||
-            nameSeperated[i].equals("Main") || nameSeperated[i].equals("Supporting"))
+            nameSeperated[i].equals("Main") || nameSeperated[i].equals("Supporting") ||
+                    nameSeperated[i].equals("Type:"))
                 break;
             nameRetrieved += nameSeperated[i] + " ";
         }
@@ -177,10 +180,11 @@ public class AnimeRec {
             showGenres=checkGenres(e.text().toString());
             showInfo.add(episodes);
             showInfo.add(rating);
-            for (String sGenre: showGenres)
+            System.out.println(show);
+            for (String sGenre: showGenres) {
                 showInfo.add(sGenre);
-        } catch (IOException e) {
-            e.printStackTrace();
+            }
+        }   catch (Exception ignore) {
         }
         return showInfo;
     }
@@ -216,11 +220,15 @@ public class AnimeRec {
     // Final retrieval of shows based on user preference
     public void retrieveTopShows(HashMap<String, ArrayList<String>> showListInfo){
         System.out.println();
-        System.out.println("Sorting final selection...");
+        System.out.println("Narrowing results based on preference...");
         Iterator it = showListInfo.keySet().iterator();
-        while (it.hasNext()){
-            String keyShow=it.next().toString();
+        while (it.hasNext()) {
+            String keyShow = it.next().toString();
             ArrayList<String> showCheck = showListInfo.get(keyShow);
+            if (showCheck.size()==0){
+                it.remove();
+                continue;
+            }
             if (!Character.isDigit(showCheck.get(0).charAt(0)) || !Character.isDigit(showCheck.get(1).charAt(0)) ||
                     showCheck.get(0).length()>4 || showCheck.get(1).length()>4) {
                 it.remove();
