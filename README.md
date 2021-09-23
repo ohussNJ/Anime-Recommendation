@@ -16,7 +16,7 @@
 * Download files into the same directory
 * Download ChromeDriver (Available at https://chromedriver.chromium.org/) 
 * Copy the path of the file location
-* Paste the file path into lines 63 
+* Paste the file path into line 63 
 * Run AnimeRec.java
 
 ## Demo
