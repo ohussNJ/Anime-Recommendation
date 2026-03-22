@@ -1,17 +1,17 @@
 ## Table of contents
-* [General info](#general-info)
+* [General Info](#general-info)
 * [Tools](#tools)
 * [Setup](#setup)
 * [Demo](#demo)
 
-## General info
-* This program will recommend a new anime series based on a show of your choice.
-* The recommended list of shows is filtered based on user preference.
+## General Info
+* This program will recommend a new anime series based on a show of your choice
+* The recommended list of shows is filtered based on user preference
 	
 ## Tools
 * Must have Selenium and Jsoup packages downloaded
-* Selenium is used to find the web profile of the show inputted by the user.
-* Jsoup scrapes the web to find similar shows so that they can be filtered.
+* Selenium is used to find the web profile of the show inputted by the user
+* Jsoup scrapes the web to find similar shows so that they can be filtered
 	
 ## Setup
 * Download files into the same directory
